@@ -7,7 +7,7 @@ pipeline{
             steps{
               script {
                   pwd
-                  build.build("test")
+                  build.build("mavenimage")
                 }
             }
         }
@@ -15,10 +15,17 @@ pipeline{
             steps{
                  script {
                   pwd
-                  build.run("test")
+                  build.run("javamaven","mavenimage")
                 }
-               
-            }
+              }
+        }
+        stage('cp') {
+            steps{
+                 script {
+                  pwd
+                  build.run("javamaven")
+                }
+              }
         }
     }
 }
