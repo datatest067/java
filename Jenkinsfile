@@ -19,12 +19,6 @@ pipeline{
                 }
               }
         }
-        stage('cp') {
-            steps{
-                 script {
-                  build.cp()
-                }
-              }
-        }
+        
     }
 }
