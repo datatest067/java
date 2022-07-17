@@ -22,8 +22,7 @@ pipeline{
         stage('cp') {
             steps{
                  script {
-                  pwd
-                  build.run()
+                  build.cp()
                 }
               }
         }
