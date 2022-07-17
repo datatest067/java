@@ -6,14 +6,14 @@ def build(dockerImageName)
         sh "docker image"
     }
 
-def run(containerName,dockerImageName)
+def run(dockerImageName)
 {
-    sh "docker run -dit --name ${containerName} ${dockerImageName}"
+    sh "docker run -dit --name javamaven ${dockerImageName}"
     sh "docker ps"
 }
 
 def cp(containerName)
 {
-    sh "docker cp ${containerName}:/usr/local/tomcat/webapps/wizard.war /tmp
+    sh "docker cp javamaven:/usr/local/tomcat/webapps/wizard.war /tmp
     
 }
