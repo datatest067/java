@@ -8,7 +8,7 @@ def build(dockerImageName)
 
 def run(dockerImageName)
 {
-    sh "docker run -dit --name javamaven ${dockerImageName}"
+    sh "docker run -dit --name 'javamaven' ${dockerImageName}"
     sh "docker ps"
 }
 
