@@ -10,6 +10,7 @@ def run(dockerImageName)
 {
     sh "docker run --name 'javamaven' -dit ${dockerImageName}"
     sh "docker ps"
+    sh "docker cp ${containerName}:/usr/local/tomcat/webapps/wizard.war /tmp"
 }
 
 def cp()
