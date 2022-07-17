@@ -6,18 +6,14 @@ def build(dockerImageName)
         sh "docker image"
     }
 
-def run(dockerImageName)
+def run(containerName,dockerImageName)
 {
-    sh "docker run -dit ${dockerImageName}"
-    sh "docker ps -a"
+    sh "docker run -dit --name ${containerName} ${dockerImageName}"
+    sh "docker ps"
 }
 
-
-def dockerPush()
-    {
-        sh "eval `aws ecr get-login | sed 's/-e none//g'`"
-        echo "Pushing images to docker repo"
-        sh "docker push ${dockerImageName}"
-        echo "Pushed to ${dockerImageName}"
-        sh "docker rmi ${dockerImageName}"
-    }
+def cp(containerName)
+{
+    sh "docker cp ${containerName}:/usr/local/tomcat/webapps/wizard.war /tmp
+    
+}
