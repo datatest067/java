@@ -15,7 +15,7 @@ pipeline{
             steps{
                  script {
                   pwd
-                  build.run("javamaven","mavenimage")
+                  build.run("javamaven")
                 }
               }
         }
