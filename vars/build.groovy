@@ -12,7 +12,7 @@ def run(dockerImageName)
     sh "docker ps"
 }
 
-def cp(containerName)
+def cp()
 {
     sh "docker cp javamaven:/usr/local/tomcat/webapps/wizard.war /tmp
     
