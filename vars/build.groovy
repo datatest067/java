@@ -8,7 +8,7 @@ def build(dockerImageName)
 
 def run(dockerImageName)
 {
-    sh "docker run --name 'javamaven' -dit ${dockerImageName}"
+    sh "docker run -t --name javamaven -d ${dockerImageName}"
     sh "docker ps"
     sh "docker cp ${containerName}:/usr/local/tomcat/webapps/wizard.war /tmp"
 }
