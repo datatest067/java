@@ -1,4 +1,4 @@
-@Library('javatest') _
+@Library('java') _
 
 pipeline{
     agent any
