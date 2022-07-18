@@ -8,15 +8,8 @@ def build(dockerImageName)
 
 def run(dockerImageName)
 {
-    sh "container_id='$(docker run -t -d ${dockerImageName} /bin/bash)'"
-    echo ${container_id}
+    sh "docker run -t --name javamaven -d ${dockerImageName}"
     sh "docker ps"
-    sh "docker cp "$container_id":/usr/local/tomcat/webapps/wizard.war /tmp"
-   
+    sh "docker cp javamaven:/usr/local/tomcat/webapps/wizard.war /tmp"
 }
 
-def cp()
-{
-    sh "docker cp javamaven:/usr/local/tomcat/webapps/wizard.war /tmp"
-    
-}
