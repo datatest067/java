@@ -19,6 +19,28 @@ pipeline{
                 }
               }
         }
+        stage('Upload War To Nexus'){
+            steps{
+                script{
+
+                    nexusArtifactUploader artifacts: [
+                        [
+                            artifactId: 'wizard', 
+                            classifier: '', 
+                            file: "/tmp/wizard.war", 
+                            type: 'war'
+                        ]
+                    ], 
+                    credentialsId: 'nexus', 
+                    groupId: 'com.codepipes.wizard', 
+                    nexusUrl: 'localhost:8081', 
+                    nexusVersion: 'nexus3', 
+                    protocol: 'http', 
+                    repository: 'maven-snapshots', 
+                    version: "0.0.1-SNAPSHOT"
+                    }
+            }
+        }
         
     }
 }
